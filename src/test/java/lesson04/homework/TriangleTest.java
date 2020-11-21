@@ -1,15 +1,25 @@
 package lesson04.homework;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TriangleTest {
 
+    private static Logger logger = LoggerFactory.getLogger(TriangleTest.class);
     private final squareTriangle squareTriangle = new squareTriangle();
+
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.out.println("@BeforeAll - Execute once before all test methods in this class.");
+        logger.debug("@BeforeAll - Execute once before all test methods in this class.");
+    }
 
     @ParameterizedTest(name = "Is triangle with sides {0}, {1}, {2}")
     @MethodSource("sidesTriangle")
