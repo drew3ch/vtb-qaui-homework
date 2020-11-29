@@ -1,5 +1,9 @@
 /out
 /target
+target
+target/*
 /.idea
+.idea
+.idea/*
 *.iml
-*.xml
+web-ui.xml
