@@ -1,9 +1,13 @@
 package lesson05.homework;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +22,29 @@ public class Test03 {
     private static final By equalButton = By.xpath("//div[@jsname='Pt8tGc']");
 
     private static final By result = By.xpath("//span[@jsname='VssY5c']");
+
+    protected WebDriver driver;
+
+    @BeforeAll
+    public static void setupWebDriverManager() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    public void beforeTest() {
+        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @Test
     public void sin() {
