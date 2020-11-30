@@ -2,6 +2,8 @@ package lesson06.homework;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.slf4j.LoggerFactory;
 
 public class Test02 extends BaseTest {
@@ -24,7 +26,7 @@ public class Test02 extends BaseTest {
     public void test() {
         gConv.gReq(q);
         gConv.currency();
-        assertEquals("15232.40", gConv.getRes());
-        log.info("200$ = 15232.40 rub");
+        assertEquals("15239.60", gConv.getRes());
+        log.info("200$ = 15239.60 rub");
     }
 }

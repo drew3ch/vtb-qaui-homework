@@ -19,6 +19,6 @@ public class Page02 extends BasePage {
 
     public void currency() {
         driver.findElement(clear).clear();
-        actions.moveToElement(driver.findElement(set)).click().sendKeys("200").build().perform();
+        actions.moveToElement(driver.findElement(set)).click().sendKeys("200").pause(1000).build().perform();
     }
 }
