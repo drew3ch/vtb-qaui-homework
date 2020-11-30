@@ -13,8 +13,8 @@ public class Page02 extends BasePage {
         super(driver);
     }
 
-    public String getRes() {
-        return driver.findElement(result).getAttribute("value");
+    public Double getRes() {
+        return Double.parseDouble(driver.findElement(result).getAttribute("value"));
     }
 
     public void currency() {
