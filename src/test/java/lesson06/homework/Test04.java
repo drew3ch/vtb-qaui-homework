@@ -24,16 +24,19 @@ public class Test04 extends BaseTest {
     public void test() {
         gCalc.gReq(q);
         gCalc.factorial();
+        makeScreenshot(driver);
         assertEquals("120", gCalc.getRes());
         log.info("factorial 5 = 120");
 
         gCalc.gReq(q);
         gCalc.log();
+        makeScreenshot(driver);
         assertEquals("0.95424250943", gCalc.getRes());
         log.info("log 9 = 0.95424250943");
 
         gCalc.gReq(q);
         gCalc.squareroot();
+        makeScreenshot(driver);
         assertEquals("3", gCalc.getRes());
         log.info("squareroot 9 = 3");
     }

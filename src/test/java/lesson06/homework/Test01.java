@@ -24,21 +24,25 @@ public class Test01 extends BaseTest {
     public void test() {
         gCalc.gReq(q);
         gCalc.onePlusThree();
+        makeScreenshot(driver);
         assertEquals("4", gCalc.getRes());
         log.info("1+3=4");
 
         gCalc.gReq(q);
         gCalc.sixMultipleNine();
+        makeScreenshot(driver);
         assertEquals("54", gCalc.getRes());
         log.info("6*9=54");
 
         gCalc.gReq(q);
         gCalc.eightDivFour();
+        makeScreenshot(driver);
         assertEquals("2", gCalc.getRes());
         log.info("8/4=2");
 
         gCalc.gReq(q);
         gCalc.eightMinusTwo();
+        makeScreenshot(driver);
         assertEquals("6", gCalc.getRes());
         log.info("8-4=6");
     }
