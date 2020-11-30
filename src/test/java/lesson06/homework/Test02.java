@@ -21,7 +21,7 @@ public class Test02 extends BaseTest {
     }
 
     @Test
-    public void test() throws NumberFormatException {
+    public void test() {
         gConv.gReq(q);
         gConv.currency();
         makeScreenshot(driver);
