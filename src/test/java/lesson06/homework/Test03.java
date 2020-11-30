@@ -1,96 +1,42 @@
 package lesson06.homework;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.openqa.selenium.WebDriver;
+import org.slf4j.LoggerFactory;
 
-public class Test03 {
+public class Test03 extends BaseTest {
 
-    private static final By sinButton = By.xpath("//div[@jsname='aN1RFf']");
-    private static final By cosButton = By.xpath("//div[@jsname='w0Xmgb']");
-    private static final By tanButton = By.xpath("//div[@jsname='VsnRKc']");
-    private static final By oneButton = By.xpath("//div[@jsname='N10B9']");
-    private static final By equalButton = By.xpath("//div[@jsname='Pt8tGc']");
-
-    private static final By result = By.xpath("//span[@jsname='VssY5c']");
-
-    protected WebDriver driver;
+    private static Page03 gCalc;
+    private final String q = "калькулятор";
 
     @BeforeAll
-    public static void setupWebDriverManager() {
-        WebDriverManager.chromedriver().setup();
+    public static void beforeAll() {
+        gCalc = new Page03(driver);
+        log = LoggerFactory.getLogger(Page03.class);
     }
 
     @BeforeEach
     public void beforeTest() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
-    }
-
-    @AfterEach
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        gCalc.gLink();
     }
 
     @Test
-    public void sin() {
-        Actions actions = new Actions(driver);
+    public void test() {
+        gCalc.gReq(q);
+        gCalc.sin();
+        assertEquals("0.8414709848", gCalc.getRes());
+        log.info("sin 1 = 0.8414709848");
 
-        driver.get("https://www.google.ru/");
+        gCalc.gReq(q);
+        gCalc.cos();
+        assertEquals("0.54030230586", gCalc.getRes());
+        log.info("cos 1 = 0.54030230586");
 
-        WebElement q = driver.findElement(By.name("q"));
-        q.sendKeys("калькулятор");
-        q.submit();
-
-        actions.moveToElement(driver.findElement(sinButton)).click().perform();
-        actions.moveToElement(driver.findElement(oneButton)).click().perform();
-        actions.moveToElement(driver.findElement(equalButton)).click().perform();
-
-        assertEquals("0.8414709848", driver.findElement(result).getText());
-    }
-
-    @Test
-    public void cos() {
-        Actions actions = new Actions(driver);
-
-        driver.get("https://www.google.ru/");
-
-        WebElement q = driver.findElement(By.name("q"));
-        q.sendKeys("калькулятор");
-        q.submit();
-
-        actions.moveToElement(driver.findElement(cosButton)).click().perform();
-        actions.moveToElement(driver.findElement(oneButton)).click().perform();
-        actions.moveToElement(driver.findElement(equalButton)).click().perform();
-
-        assertEquals("0.54030230586", driver.findElement(result).getText());
-    }
-
-    @Test
-    public void tan() {
-        Actions actions = new Actions(driver);
-
-        driver.get("https://www.google.ru/");
-
-        WebElement q = driver.findElement(By.name("q"));
-        q.sendKeys("калькулятор");
-        q.submit();
-
-        actions.moveToElement(driver.findElement(tanButton)).click().perform();
-        actions.moveToElement(driver.findElement(oneButton)).click().perform();
-        actions.moveToElement(driver.findElement(equalButton)).click().perform();
-
-        assertEquals("1.55740772465", driver.findElement(result).getText());
+        gCalc.gReq(q);
+        gCalc.tan();
+        assertEquals("1.55740772465", gCalc.getRes());
+        log.info("tan 1 = 1.55740772465");
     }
 }
