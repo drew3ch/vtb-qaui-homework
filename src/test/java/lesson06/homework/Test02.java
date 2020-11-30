@@ -24,7 +24,7 @@ public class Test02 extends BaseTest {
     public void test() throws NumberFormatException {
         gConv.gReq(q);
         gConv.currency();
-        assertTrue(Double.parseDouble(gConv.getRes()) > 15200.00);
+        assertTrue(gConv.getRes() > 15200.00);
         log.info("200$ > 15200 rub");
     }
 }
