@@ -21,11 +21,11 @@ public class Test02 extends BaseTest {
     }
 
     @Test
-    public void test() {
+    public void currency() {
         gConv.gReq(q);
         gConv.currency();
         makeScreenshot(driver);
-        assertTrue(gConv.getRes() > 15200.00);
-        log.info("200$ > 15200 rub");
+        assertTrue(gConv.getRes() > 15000.00);
+        log.info("200$ > 15000 rub");
     }
 }

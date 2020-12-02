@@ -21,19 +21,25 @@ public class Test04 extends BaseTest {
     }
 
     @Test
-    public void test() {
+    public void factorial() {
         gCalc.gReq(q);
         gCalc.factorial();
         makeScreenshot(driver);
         assertEquals("120", gCalc.getRes());
         log.info("factorial 5 = 120");
+    }
 
+    @Test
+    public void log() {
         gCalc.gReq(q);
         gCalc.log();
         makeScreenshot(driver);
         assertEquals("0.95424250943", gCalc.getRes());
         log.info("log 9 = 0.95424250943");
+    }
 
+    @Test
+    public void squareroot() {
         gCalc.gReq(q);
         gCalc.squareroot();
         makeScreenshot(driver);
