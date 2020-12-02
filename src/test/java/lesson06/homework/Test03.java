@@ -21,19 +21,28 @@ public class Test03 extends BaseTest {
     }
 
     @Test
-    public void test() {
+    public void sin() {
         gCalc.gReq(q);
         gCalc.sin();
+        makeScreenshot(driver);
         assertEquals("0.8414709848", gCalc.getRes());
         log.info("sin 1 = 0.8414709848");
+    }
 
+    @Test
+    public void cos() {
         gCalc.gReq(q);
         gCalc.cos();
+        makeScreenshot(driver);
         assertEquals("0.54030230586", gCalc.getRes());
         log.info("cos 1 = 0.54030230586");
+    }
 
+    @Test
+    public void tan() {
         gCalc.gReq(q);
         gCalc.tan();
+        makeScreenshot(driver);
         assertEquals("1.55740772465", gCalc.getRes());
         log.info("tan 1 = 1.55740772465");
     }

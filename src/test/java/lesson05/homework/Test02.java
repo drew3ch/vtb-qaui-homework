@@ -63,7 +63,7 @@ public class Test02 {
         driver.findElement(clear).clear();
         actions.moveToElement(driver.findElement(set)).click().sendKeys("200").pause(1000).perform();
 
-        assertTrue(Double.parseDouble(driver.findElement(result).getAttribute("value")) > 15200.00);
+        assertTrue(Double.parseDouble(driver.findElement(result).getAttribute("value")) > 15000.00);
 
         driver.quit();
     }
