@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import java.util.concurrent.TimeUnit;
+
 public class BaseTest {
 
     protected static Logger log;

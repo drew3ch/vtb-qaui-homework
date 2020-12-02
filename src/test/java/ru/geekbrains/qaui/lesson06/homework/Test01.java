@@ -55,5 +55,4 @@ public class Test01 extends BaseTest {
         assertEquals("6", gCalc.getRes());
         log.info("8-4=6");
     }
-
 }
